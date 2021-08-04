@@ -2,11 +2,17 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     info.startCountdown(3.8)
     pizzaWithAFace.setPosition(randint(0, 160), randint(0, 120))
     info.changeScoreBy(1)
+    if (info.score() == 10) {
+        game.over(true)
+    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.startCountdown(3.8)
     pizzaAppleWithWorm.setPosition(randint(0, 160), randint(0, 120))
     info.changeScoreBy(-1)
+    if (info.score() == -5) {
+        game.over(false)
+    }
 })
 let pizzaWithAFace: Sprite = null
 let pizzaAppleWithWorm: Sprite = null
